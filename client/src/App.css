@@ -1,0 +1,19 @@
+#basic-navbar-nav > div.me-auto.navbar-nav a,
+#basic-navbar-nav > div:nth-child(2) a {
+  padding: 10px 15px;
+  margin: 0 5px;
+  color: white;
+  text-decoration: none;  
+  text-align: center;
+}
+
+#basic-navbar-nav > div.me-auto.navbar-nav a:hover,
+#basic-navbar-nav > div:nth-child(2) a:hover {
+  background-color: #0d6efd;
+  border-radius: 4px;
+}
+
+p.disclaimer {
+  padding: 20px;
+  background-color: gainsboro;
+}
