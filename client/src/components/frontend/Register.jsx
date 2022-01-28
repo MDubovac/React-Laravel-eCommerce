@@ -27,7 +27,7 @@ function Register() {
 
     const handleInput = (e) => {
         e.persist();
-        setRegister({ ...registerInput, [e.target.name]: e.target.value })
+        setRegister({ ...registerInput, [e.target.name]: e.target.value });
     }
 
     const registerSubmit = (e) => {

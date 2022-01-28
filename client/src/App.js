@@ -21,6 +21,7 @@ import Page404 from './components/errors/Page404';
 import axios from 'axios';
 import AdminLayout from './layouts/admin/AdminLayout';
 import Dashboard from './components/admin/Dashboard';
+import AddCategory from './components/admin/AddCategory';
 axios.defaults.baseURL = 'http://127.0.0.1:8000';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -44,6 +45,7 @@ function App() {
 
           
           <Route path='/dashboard' element={ <AdminLayout Cmp={ Dashboard } /> } />
+          <Route path='/addCategory' element={ <AdminLayout Cmp={ AddCategory } /> } />
 
           <Route path='/403' element={ <Page403/> } />
           <Route path='/404' element={ <Page404/> } />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
 
@@ -29,10 +29,15 @@ function AdminSidebar() {
                 <div className="sb-sidenav-menu">
                     <div className="nav">
                         <div className="sb-sidenav-menu-heading">Core</div>
-                        <a className="nav-link" href="index.html">
+                        <Link className="nav-link" to="/dashboard">
                             <div className="sb-nav-link-icon"></div>
                             Dashboard
-                        </a>
+                        </Link>
+                        <div className="sb-sidenav-menu-heading">Categories</div>
+                        <Link className="nav-link" to="/addCategory">
+                            <div className="sb-nav-link-icon"></div>
+                            Add Category
+                        </Link>
                         <div className="sb-sidenav-menu-heading">Interface</div>
                         <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>

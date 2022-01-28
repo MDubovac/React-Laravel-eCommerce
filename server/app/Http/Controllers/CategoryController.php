@@ -13,8 +13,9 @@ class CategoryController extends Controller
     {   
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:191|unique:categories|string',
-            'slug' => 'required|max:191|string',
-            'meta_title' => 'required|max:191|string'
+            'slug' => 'required|max:191|unique:categories|string',
+            'meta_title' => 'required|max:191|unique:categories|string',
+            'meta_keyword' => 'required|max:191|unique:categories|string',
         ]);
 
         if ($validator->fails())
