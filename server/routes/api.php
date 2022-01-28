@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,9 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 
 // Admin middleware routes
 Route::group(['middleware' => ['auth:sanctum', 'isApiAdmin']], function() {
-    
+    // Categories
+    Route::post('/categories', [CategoryController::class, 'store']);
 });
-
 
 Route::get('/greeting', function () {
     return 'Hello World';

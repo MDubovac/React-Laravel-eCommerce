@@ -17,7 +17,6 @@ function Register() {
         }
     }, []);
 
-
     const [registerInput, setRegister] = useState({
         name: '',
         email: '',
