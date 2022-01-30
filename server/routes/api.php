@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth:sanctum', 'isApiAdmin']], function() {
     Route::post('/categories', [CategoryController::class, 'store']);
     Route::get('/edit_category/{id}', [CategoryController::class, 'edit']);
     Route::put('/update_category/{id}', [CategoryController::class, 'update']);
+    Route::delete('/delete_category/{id}', [CategoryController::class, 'delete']);
 });
 
 Route::get('/greeting', function () {
