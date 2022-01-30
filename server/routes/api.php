@@ -28,7 +28,10 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 // Admin middleware routes
 Route::group(['middleware' => ['auth:sanctum', 'isApiAdmin']], function() {
     // Categories
+    Route::get('/categories', [CategoryController::class, 'index']);
     Route::post('/categories', [CategoryController::class, 'store']);
+    Route::get('/edit_category/{id}', [CategoryController::class, 'edit']);
+    Route::put('/update_category/{id}', [CategoryController::class, 'update']);
 });
 
 Route::get('/greeting', function () {

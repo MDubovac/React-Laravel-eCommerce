@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
 
 function AddCategory() {
+
+    const navigate = useNavigate();
 
     const [categoryInput, setCategory] = useState({
         name: '',
@@ -35,6 +38,7 @@ function AddCategory() {
 
         axios.post(`/api/categories`, data).then(res => {
             if (res.data.status === 200) {
+                navigate('/categories');
                 swal({
                     title: 'Success!',
                     text: 'Category created successfully!',

@@ -34,7 +34,11 @@ function AdminSidebar() {
                             Dashboard
                         </Link>
                         <div className="sb-sidenav-menu-heading">Categories</div>
-                        <Link className="nav-link" to="/addCategory">
+                        <Link className="nav-link" to="/categories">
+                            <div className="sb-nav-link-icon"></div>
+                            All categories
+                        </Link>
+                        <Link className="nav-link" to="/add_category">
                             <div className="sb-nav-link-icon"></div>
                             Add Category
                         </Link>

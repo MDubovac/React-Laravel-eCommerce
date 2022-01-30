@@ -9,6 +9,13 @@ import Collections from './components/frontend/Collections';
 import Login from './components/frontend/Login';
 import Register from './components/frontend/Register';
 
+// Admin components
+import AdminLayout from './layouts/admin/AdminLayout';
+import Dashboard from './components/admin/Dashboard';
+import Categories from './components/admin/categories/Categories';
+import AddCategory from './components/admin/categories/AddCategory';
+import EditCategory from './components/admin/categories/EditCategory';
+
 // Admin page assets
 import './assets/admin/css/styles.css';
 import './assets/admin/js/scripts.js';
@@ -19,9 +26,6 @@ import Page404 from './components/errors/Page404';
 
 // Axios Configuration
 import axios from 'axios';
-import AdminLayout from './layouts/admin/AdminLayout';
-import Dashboard from './components/admin/Dashboard';
-import AddCategory from './components/admin/AddCategory';
 axios.defaults.baseURL = 'http://127.0.0.1:8000';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -45,7 +49,9 @@ function App() {
 
           
           <Route path='/dashboard' element={ <AdminLayout Cmp={ Dashboard } /> } />
-          <Route path='/addCategory' element={ <AdminLayout Cmp={ AddCategory } /> } />
+          <Route path='/categories' element={ <AdminLayout Cmp={ Categories } /> } />
+          <Route path='/add_category' element={ <AdminLayout Cmp={ AddCategory } /> } />
+          <Route path='/edit_category/:id' element={ <AdminLayout Cmp={ EditCategory } /> } />
 
           <Route path='/403' element={ <Page403/> } />
           <Route path='/404' element={ <Page404/> } />
