@@ -49,7 +49,6 @@ class CategoryController extends Controller
             $category->name = $request->input('name');
             $category->slug = $request->input('slug');
             $category->description = $request->input('description');
-            $category->status = $request->input('status');
             $category->meta_title = $request->input('meta_title');
             $category->meta_keyword = $request->input('meta_keyword');
             $category->meta_desc = $request->input('meta_desc');
@@ -118,7 +117,6 @@ class CategoryController extends Controller
                 $category->meta_title = $request->input('meta_title');
                 $category->meta_keyword = $request->input('meta_keyword');
                 $category->meta_desc = $request->input('meta_desc');
-                $category->status = $request->input('status');
                 $category->save();
 
                 return response()->json([

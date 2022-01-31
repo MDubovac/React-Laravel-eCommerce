@@ -22,7 +22,6 @@ class CreateCategoriesTable extends Migration
             $table->string('meta_title');
             $table->mediumText('meta_keyword');
             $table->mediumText('meta_desc');
-            $table->tinyInteger('status')->default(0);
         });
     }
 
