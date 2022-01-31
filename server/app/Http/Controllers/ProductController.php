@@ -9,6 +9,19 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     /**
+     * Index
+     * Get all products
+     */
+    public function index()
+    {
+        $products = Product::all();
+        return response()->json([
+            'status' => 200,
+            'products' => $products
+        ]);
+    }
+
+    /**
      * Store
      * Validates the data
      * Creates a new product
