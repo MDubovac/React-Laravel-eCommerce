@@ -20,8 +20,11 @@ function Products() {
         return (
             <tr key={item.id} scope="row">
                 <td>{item.name}</td>
-                <td>{item.slug}</td>
-                <td>{item.meta_title}</td>
+                <td>{item.category.name}</td>
+                <td>{item.selling_price}</td>
+                <td>
+                    <img src={`http://127.0.0.1:8000/${item.image}`} width="50px" />
+                </td>
                 <td>
                     <Link to={`/edit_category/${item.id}`} className="btn btn-primary mx-1" >
                         <i className="fa fa-edit"></i>
@@ -40,7 +43,7 @@ function Products() {
                 <div className="card-header">
                     <h3>
                         All products
-                        <Link to="/add_product" className="btn btn-primary float-end">Add product</Link>
+                        <Link to="/add_product" className="btn btn-primary float-end">Add Product</Link>
                     </h3>
                 </div>
                 <div className="card-body">
@@ -48,8 +51,8 @@ function Products() {
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
-                                <th scope="col">Slug</th>
-                                <th scope="col">Meta title</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Price</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>

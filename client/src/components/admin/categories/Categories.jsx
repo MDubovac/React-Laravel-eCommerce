@@ -66,7 +66,7 @@ function Categories() {
                 <div className="card-header">
                     <h3>
                         All categories
-                        <Link to="/add_category" className="btn btn-primary float-end">Add category</Link>
+                        <Link to="/add_category" className="btn btn-primary float-end">Add Category</Link>
                     </h3>
                 </div>
                 <div className="card-body">
