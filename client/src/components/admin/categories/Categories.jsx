@@ -49,10 +49,12 @@ function Categories() {
                 <td>{item.slug}</td>
                 <td>{item.meta_title}</td>
                 <td>
-                    <Link to={`/edit_category/${item.id}`} className="btn btn-primary" >Edit</Link>
-                </td>
-                <td>
-                    <button onClick={(e) => deleteCategory(e, item.id)} className="btn btn-danger">Delete</button>
+                    <Link to={`/edit_category/${item.id}`} className="btn btn-primary mx-1" >
+                        <i className="fa fa-edit"></i>
+                    </Link>
+                    <button onClick={(e) => deleteCategory(e, item.id)} className="btn btn-danger mx-1">
+                        <i className="fa fa-trash"></i>
+                    </button>
                 </td>
             </tr>
         );
@@ -74,8 +76,7 @@ function Categories() {
                                 <th scope="col">Name</th>
                                 <th scope="col">Slug</th>
                                 <th scope="col">Meta title</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>

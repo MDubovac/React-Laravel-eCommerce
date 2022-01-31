@@ -11,7 +11,6 @@ function AddCategory() {
         name: '',
         slug: '',
         description: '',
-        status: null,
         meta_title: '',
         meta_keyword: '',
         meta_desc: '',
@@ -54,7 +53,7 @@ function AddCategory() {
     return (
         <div className="container">
             <form onSubmit={categorySubmit}>
-                <h1 className="mt-3">Add Category</h1>
+                <h2 className="mt-3">Add Category</h2>
                 <div className="form-group my-3">
                     <label htmlFor="name">Name</label>
                     <input onChange={handleInput} defaultValue={categoryInput.name} type="text" name="name" className="form-control" />
@@ -84,14 +83,6 @@ function AddCategory() {
                     <label htmlFor="meta_desc">Meta Desc</label>
                     <input onChange={handleInput} defaultValue={categoryInput.meta_desc} type="text" name="meta_desc" className="form-control" />
                     <span className="text-danger"><b>{ categoryInput.error_list.meta_desc }</b></span>
-                </div>
-                <div className="form-group my-3">
-                    <label htmlFor="status">Status</label>
-                    <select onChange={handleInput} defaultValue={categoryInput.status} name="status" id="status" className="form-control">
-                        <option value="0">Disabled</option>
-                        <option value="1">Enabled</option>
-                    </select>
-                    <span className="text-danger"><b>{ categoryInput.error_list.status }</b></span>
                 </div>
                 <button type="submit" className="btn btn-primary my-3">Add Category</button>
             </form>

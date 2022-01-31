@@ -41,8 +41,7 @@ function EditCategory() {
             'description': categoryInput.description,
             'meta_title': categoryInput.meta_title,
             'meta_keyword': categoryInput.meta_keyword,
-            'meta_desc': categoryInput.meta_desc,
-            'status': categoryInput.status
+            'meta_desc': categoryInput.meta_desc
         };
 
         axios.put(`/api/update_category/${id}`, data).then(res => {
@@ -93,15 +92,7 @@ function EditCategory() {
                     <input onChange={handleInput} defaultValue={categoryInput.meta_desc} type="text" name="meta_desc" className="form-control" />
                     <span className="text-danger"><b>{ errors.meta_desc }</b></span>
                 </div>
-                <div className="form-group my-3">
-                    <label htmlFor="status">Status</label>
-                    <select onChange={handleInput} defaultValue={categoryInput.status} name="status" id="status" className="form-control">
-                        <option value="0">Disabled</option>
-                        <option value="1">Enabled</option>
-                    </select>
-                    <span className="text-danger"><b>{ errors.status }</b></span>
-                </div>
-                <button type="submit" className="btn btn-primary my-3">Add Category</button>
+                <button type="submit" className="btn btn-primary my-3">Update</button>
             </form>
         </div>
     );

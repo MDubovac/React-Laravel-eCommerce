@@ -26,6 +26,8 @@ import Page404 from './components/errors/Page404';
 
 // Axios Configuration
 import axios from 'axios';
+import Products from './components/admin/products/Products';
+import AddProduct from './components/admin/products/AddProduct';
 axios.defaults.baseURL = 'http://127.0.0.1:8000';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -47,12 +49,15 @@ function App() {
           <Route path='/login' element={ <MainPage Cmp={ Login } /> } />
           <Route path='/register' element={ <MainPage Cmp={ Register } /> } />
 
-          
           <Route path='/dashboard' element={ <AdminLayout Cmp={ Dashboard } /> } />
+          
           <Route path='/categories' element={ <AdminLayout Cmp={ Categories } /> } />
           <Route path='/add_category' element={ <AdminLayout Cmp={ AddCategory } /> } />
           <Route path='/edit_category/:id' element={ <AdminLayout Cmp={ EditCategory } /> } />
 
+          <Route path='/products' element={ <AdminLayout Cmp={ Products } /> } />
+          <Route path='/add_product' element={ <AdminLayout Cmp={ AddProduct } /> } />
+          
           <Route path='/403' element={ <Page403/> } />
           <Route path='/404' element={ <Page404/> } />
 
