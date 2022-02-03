@@ -26,7 +26,7 @@ function Products() {
                     <img src={`http://127.0.0.1:8000/${item.image}`} width="50px" />
                 </td>
                 <td>
-                    <Link to={`/edit_category/${item.id}`} className="btn btn-primary mx-1" >
+                    <Link to={`/edit_product/${item.id}`} className="btn btn-primary mx-1" >
                         <i className="fa fa-edit"></i>
                     </Link>
                     <button className="btn btn-danger mx-1">

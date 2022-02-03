@@ -35,9 +35,7 @@ function Categories() {
                     icon: 'error',
                 });
             }   
-
         });
-
     }
 
     // Create a table

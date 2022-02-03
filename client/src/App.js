@@ -28,6 +28,7 @@ import Page404 from './components/errors/Page404';
 import axios from 'axios';
 import Products from './components/admin/products/Products';
 import AddProduct from './components/admin/products/AddProduct';
+import EditProduct from './components/admin/products/EditProduct';
 axios.defaults.baseURL = 'http://127.0.0.1:8000';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -57,6 +58,7 @@ function App() {
 
           <Route path='/products' element={ <AdminLayout Cmp={ Products } /> } />
           <Route path='/add_product' element={ <AdminLayout Cmp={ AddProduct } /> } />
+          <Route path='/edit_product/:id' element={ <AdminLayout Cmp={ EditProduct } /> } />
           
           <Route path='/403' element={ <Page403/> } />
           <Route path='/404' element={ <Page404/> } />
