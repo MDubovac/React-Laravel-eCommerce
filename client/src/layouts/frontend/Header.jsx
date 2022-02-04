@@ -22,28 +22,31 @@ function Header() {
                 });
                 navigate('/');
             }
-        })
-
+        });
     }
 
     return (
         <>
-            <Navbar bg="dark" variant="dark" expand="lg">
+            <Navbar bg="primary" variant="dark" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand>
+                        <Link to="/">E-Commerce</Link>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
 
                         <Nav className="me-auto">
                             <Link to="/">Home</Link>
                             <Link to="/collections">Collections</Link>
+                            <Link to="/about">About</Link>
+                            <Link to="/contact">Contact</Link>
                         </Nav>
 
                         <Nav>
                             {
                                 localStorage.getItem('auth_token') ?
                                 <>
-                                    <Button onClick={logoutSubmit} className="btn btn-danger">Logout</Button>
+                                    <Button onClick={logoutSubmit} className="btn btn-outline-warning">Logout</Button>
                                 </>
                                 :
                                 <> 

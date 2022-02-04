@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,11 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-// Regular routes
+// Public routes
+Route::get('/all_categories', [FrontendController::class, 'getAllCategories']);
+Route::get('/all_products/{id}', [FrontendController::class, 'getProductsByCategoryId']);
+Route::get('/get_product/{id}', [FrontendController::class, 'getProductById']);
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 

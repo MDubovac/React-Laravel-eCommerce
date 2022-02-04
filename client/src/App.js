@@ -6,8 +6,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './layouts/frontend/MainPage';
 import Home from './components/frontend/Home';
 import Collections from './components/frontend/Collections';
-import Login from './components/frontend/Login';
-import Register from './components/frontend/Register';
+import Login from './components/frontend/auth/Login';
+import Register from './components/frontend/auth/Register';
+import Products from './components/admin/products/Products';
+import AddProduct from './components/admin/products/AddProduct';
+import EditProduct from './components/admin/products/EditProduct';
+import About from './components/frontend/About';
+import Contact from './components/frontend/Contact';
+import ProductList from './components/frontend/ProductList';
 
 // Admin components
 import AdminLayout from './layouts/admin/AdminLayout';
@@ -26,9 +32,6 @@ import Page404 from './components/errors/Page404';
 
 // Axios Configuration
 import axios from 'axios';
-import Products from './components/admin/products/Products';
-import AddProduct from './components/admin/products/AddProduct';
-import EditProduct from './components/admin/products/EditProduct';
 axios.defaults.baseURL = 'http://127.0.0.1:8000';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -47,6 +50,10 @@ function App() {
           
           <Route path='/' element={ <MainPage Cmp={ Home } /> } />
           <Route path='/collections' element={ <MainPage Cmp={ Collections } /> } />
+          <Route path='/about' element={ <MainPage Cmp={ About } /> } />
+          <Route path='/contact' element={ <MainPage Cmp={ Contact } /> } />
+          <Route path='/productList/:id' element={ <MainPage Cmp={ ProductList } /> } />
+   
           <Route path='/login' element={ <MainPage Cmp={ Login } /> } />
           <Route path='/register' element={ <MainPage Cmp={ Register } /> } />
 
