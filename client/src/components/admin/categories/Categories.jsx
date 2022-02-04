@@ -74,7 +74,7 @@ function Categories() {
                                 <th scope="col">Name</th>
                                 <th scope="col">Slug</th>
                                 <th scope="col">Meta title</th>
-                                <th scope="col"></th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>

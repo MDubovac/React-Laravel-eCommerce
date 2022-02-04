@@ -170,4 +170,32 @@ class ProductController extends Controller
             }
         }
     }
+
+    /**
+     * Delete
+     * Deletes a product by id
+     */
+    public function delete($id)
+    {
+        $product = Product::find($id);
+        if ($product)
+        {
+            if ($product->image)
+            {
+                File::delete($product->image);
+            }
+            $product->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Product deleted successfully.'
+            ]);
+        }
+        else 
+        {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Product not found.'
+            ]);
+        }
+    }
 }

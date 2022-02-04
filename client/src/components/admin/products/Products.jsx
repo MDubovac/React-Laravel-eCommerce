@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 function Products() {
 
@@ -13,6 +14,29 @@ function Products() {
             }
         });
     }, []);
+
+    const deleteProduct = (e, id) => {
+        e.preventDefault();
+
+        const thisClicked = e.currentTarget;
+
+        axios.delete(`/api/delete_product/${id}`).then(res => {
+            if (res.data.status === 200) {
+                swal({
+                    title: 'Success!',
+                    text: res.data.message,
+                    icon: 'success',
+                });
+                thisClicked.closest("tr").remove();
+            } else {
+                swal({
+                    title: '404!',
+                    text: res.data.message,
+                    icon: 'error',
+                });
+            }
+        });
+    }
 
     // Create a table
     var viewProduct_HTMLTABLE = "";
@@ -29,7 +53,7 @@ function Products() {
                     <Link to={`/edit_product/${item.id}`} className="btn btn-primary mx-1" >
                         <i className="fa fa-edit"></i>
                     </Link>
-                    <button className="btn btn-danger mx-1">
+                    <button onClick={(e) => deleteProduct(e, item.id)} className="btn btn-danger mx-1">
                         <i className="fa fa-trash"></i>
                     </button>
                 </td>
@@ -53,7 +77,8 @@ function Products() {
                                 <th scope="col">Name</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Price</th>
-                                <th scope="col"></th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
