@@ -77,9 +77,6 @@ class ProductController extends Controller
             $product->meta_title = $request->input('meta_title');
             $product->meta_keyword = $request->input('meta_keyword');
             $product->meta_desc = $request->input('meta_desc');
-
-            $product->featured = $request->input('featured') == true ? '1' : '0';
-            $product->popular = $request->input('popular') == true ? '1' : '0';
         
             if ($request->hasFile('image'))
             {
@@ -142,9 +139,6 @@ class ProductController extends Controller
                 $product->meta_title = $request->input('meta_title');
                 $product->meta_keyword = $request->input('meta_keyword');
                 $product->meta_desc = $request->input('meta_desc');
-                
-                $product->featured = $request->input('featured') == true ? '1' : '0';
-                $product->popular = $request->input('popular') == true ? '1' : '0';
                 
                 if ($request->hasFile('image'))
                 {

@@ -26,8 +26,6 @@ class CreateProductsTable extends Migration
             $table->string('selling_price');
             $table->string('qty');
             $table->string('image')->nullable();
-            $table->tinyInteger('featured')->default('0')->nullable();
-            $table->tinyInteger('popular')->default('0')->nullable();
             $table->integer('category_id');
             $table->timestamps();
         });

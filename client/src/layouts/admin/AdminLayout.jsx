@@ -13,11 +13,6 @@ function AdminLayout(props) {
   useEffect(() => {
     if (!localStorage.getItem('auth_token') || localStorage.getItem('auth_role') != 'admin') {
       navigate('/');
-      swal({
-        title: 'Forbidden!',
-        text: 'Access Denied! As you are not an Admin.',
-        icon: 'warning',
-      });
     }
   }, []);
 

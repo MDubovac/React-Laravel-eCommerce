@@ -21,16 +21,14 @@ function EditProduct() {
         selling_price: '',
         original_price: '',
         qty: '',
-        brand: '',
-        featured: '',
-        popular: ''
+        brand: ''
     });
 
     const [picture, setPicture] = useState([]);
     const [errors, setErrors] = useState([]);
+    const [allcheckbox, setCheckboxes] = useState([]);
 
     let { id } = useParams();
-    
     
     useEffect(() => {
         axios.get(`/api/categories`).then(res => {
@@ -39,6 +37,7 @@ function EditProduct() {
         axios.get(`/api/products/${id}`).then(res => {
             setProducts(res.data.product);
             setcurrentCategory(res.data.product.category.name);
+            setCheckboxes(res.data.product);
         });
     }, []);
     
@@ -71,8 +70,6 @@ function EditProduct() {
         formData.append('original_price', productInput.original_price);
         formData.append('brand', productInput.brand);
         formData.append('qty', productInput.qty);
-        formData.append('featured', productInput.featured);
-        formData.append('popular', productInput.popular);
 
         axios.post(`/api/update_product/${id}`, formData).then(res => {
             if (res.data.status === 200) {
@@ -90,9 +87,9 @@ function EditProduct() {
 
   return (
       <div className="container">
-          <Link to="/products" className="btn btn-outline-primary my-2">Go Back</Link>
+          <Link to="/products" className="btn btn-outline-primary my-3">Go Back</Link>
           <form onSubmit={submitProduct} encType="multipart/form-data">
-            <h2 className="mt-3">Edit Product</h2>
+            <h2>Edit Product</h2>
 
             <div className="form-group my-3">
                 <label htmlFor="name">Name</label>
@@ -183,18 +180,7 @@ function EditProduct() {
                 <span className="text-danger"><b>{ errors.category_id }</b></span>
             </div>
 
-            <div className="form-group my-3">
-                <label htmlFor="featured">Featured</label>
-                <input type="checkbox" name="featured" defaultValue={productInput.featured} className="mx-2" />   
-            </div>
-
-            <div className="form-group my-3">
-                <label htmlFor="popular">Popular</label>
-                <input type="checkbox" name="popular" defaultValue={productInput.popular} className="mx-2" />   
-            </div>
-
             <button type="submit" className="btn btn-primary my-3">Update</button>
-
           </form>
       </div>
   );

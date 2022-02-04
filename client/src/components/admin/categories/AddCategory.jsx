@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import swal from 'sweetalert';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function AddCategory() {
 
@@ -52,8 +52,9 @@ function AddCategory() {
 
     return (
         <div className="container">
+            <Link to="/categories" className="btn btn-outline-primary my-3">Go Back</Link>
             <form onSubmit={categorySubmit}>
-                <h2 className="mt-3">Add Category</h2>
+                <h2>Add Category</h2>
                 <div className="form-group my-3">
                     <label htmlFor="name">Name</label>
                     <input onChange={handleInput} defaultValue={categoryInput.name} type="text" name="name" className="form-control" />

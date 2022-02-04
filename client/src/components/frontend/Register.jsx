@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -6,16 +6,6 @@ import swal from 'sweetalert';
 function Register() {
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (localStorage.getItem('auth_token')) {
-            if (localStorage.getItem('auth_role') === 'admin') {
-                navigate('/dashboard');
-            } else {
-                navigate('/');
-            }
-        }
-    }, []);
 
     const [registerInput, setRegister] = useState({
         name: '',
@@ -45,6 +35,7 @@ function Register() {
                 if (res.data.status === 200) {
                     localStorage.setItem('auth_token', res.data.token);
                     localStorage.setItem('auth_name', res.data.username);
+                    localStorage.setItem('auth_role', res.data.role);
                     navigate('/dashboard');
                     swal({
                         title: 'Success!',

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import swal from 'sweetalert';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function AddProduct() {
 
@@ -20,9 +20,7 @@ function AddProduct() {
         selling_price: '',
         original_price: '',
         qty: '',
-        brand: '',
-        featured: '',
-        popular: ''
+        brand: ''
     });
 
     const [picture, setPicture] = useState([]);
@@ -63,8 +61,6 @@ function AddProduct() {
         formData.append('original_price', productInput.original_price);
         formData.append('brand', productInput.brand);
         formData.append('qty', productInput.qty);
-        formData.append('featured', productInput.featured);
-        formData.append('popular', productInput.popular);
 
         axios.post(`/api/products`, formData).then(res => {
             if (res.data.status === 200) {
@@ -82,8 +78,9 @@ function AddProduct() {
 
   return (
       <div className="container">
+          <Link to="/products" className="btn btn-outline-primary my-3">Go Back</Link>
           <form onSubmit={submitProduct} encType="multipart/form-data">
-            <h2 className="mt-3">Add Product</h2>
+            <h2>Add Product</h2>
 
             <div className="form-group my-3">
                 <label htmlFor="name">Name</label>
@@ -168,18 +165,7 @@ function AddProduct() {
                 <span className="text-danger"><b>{ errors.category_id }</b></span>
             </div>
 
-            <div className="form-group my-3">
-                <label htmlFor="featured">Featured</label>
-                <input type="checkbox" name="featured" className="mx-2" />   
-            </div>
-
-            <div className="form-group my-3">
-                <label htmlFor="popular">Popular</label>
-                <input type="checkbox" name="popular" className="mx-2" />   
-            </div>
-
             <button type="submit" className="btn btn-primary my-3">Add product</button>
-
           </form>
       </div>
   );
