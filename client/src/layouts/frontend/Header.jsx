@@ -27,7 +27,7 @@ function Header() {
 
     return (
         <>
-            <Navbar bg="primary" variant="dark" expand="lg">
+            <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
                 <Container>
                     <Navbar.Brand>
                         <Link to="/">E-Commerce</Link>
@@ -56,7 +56,6 @@ function Header() {
                             }
                            
                         </Nav>
-
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

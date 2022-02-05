@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,10 @@ use App\Http\Controllers\FrontendController;
 
 // Public routes
 Route::get('/all_categories', [FrontendController::class, 'getAllCategories']);
-Route::get('/all_products/{id}', [FrontendController::class, 'getProductsByCategoryId']);
-Route::get('/get_product/{id}', [FrontendController::class, 'getProductById']);
+Route::get('/all_products/{slug}', [FrontendController::class, 'getProductsByCategorySlug']);
+Route::get('/view-product/{category_slug}/{product_slug}', [FrontendController::class, 'getProductBySlug']);
+
+Route::post('/add-to-cart', [CartController::class, 'addToCart']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

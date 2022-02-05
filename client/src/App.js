@@ -14,6 +14,7 @@ import EditProduct from './components/admin/products/EditProduct';
 import About from './components/frontend/About';
 import Contact from './components/frontend/Contact';
 import ProductList from './components/frontend/ProductList';
+import ViewProduct from './components/frontend/ViewProduct';
 
 // Admin components
 import AdminLayout from './layouts/admin/AdminLayout';
@@ -52,7 +53,8 @@ function App() {
           <Route path='/collections' element={ <MainPage Cmp={ Collections } /> } />
           <Route path='/about' element={ <MainPage Cmp={ About } /> } />
           <Route path='/contact' element={ <MainPage Cmp={ Contact } /> } />
-          <Route path='/productList/:id' element={ <MainPage Cmp={ ProductList } /> } />
+          <Route path='/collections/:slug' element={ <MainPage Cmp={ ProductList } /> } />
+          <Route path='/:category_slug/:product_slug' element={ <MainPage Cmp={ ViewProduct } /> } />
    
           <Route path='/login' element={ <MainPage Cmp={ Login } /> } />
           <Route path='/register' element={ <MainPage Cmp={ Register } /> } />

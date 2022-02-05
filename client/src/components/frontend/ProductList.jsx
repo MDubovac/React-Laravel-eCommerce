@@ -10,13 +10,13 @@ function ProductList() {
 
     const navigate = useNavigate();
 
-    let { id } = useParams();
+    let { slug } = useParams();
 
     useEffect(() => {
-        axios.get(`/api/all_products/${id}`).then(res => {
+        axios.get(`/api/all_products/${slug}`).then(res => {
             if (res.data.status === 200) {
                 setProducts(res.data.products);
-                setCategory(res.data.currentCategory);
+                setCategory(res.data.category);
             } else if (res.data.status === 404) {
                 navigate('/collections');
                 swal({
@@ -41,7 +41,7 @@ function ProductList() {
                                 <b>Price: </b> ${product.selling_price} USD
                             </h3>
                             <div className="d-flex">
-                                <Link to={`/product/${product.id}`} className="btn btn-primary">Details</Link>
+                                <Link to={`/${category.slug}/${product.slug}`} className="btn btn-primary">Details</Link>
                                 <Link to="#" className="mx-2 btn btn-warning">Add to cart</Link>
                             </div>
                         </div>

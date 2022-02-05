@@ -20,7 +20,7 @@ function Collections() {
             <div key={category.id} className="col-md-4">
                 <div className="card my-3">
                     <h2 className="text-center my-2">
-                        <Link to={`/productList/${category.id}`}>
+                        <Link to={`/collections/${category.slug}`}>
                             {category.name}
                         </Link>
                     </h2>

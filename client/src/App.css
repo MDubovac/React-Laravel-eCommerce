@@ -22,3 +22,21 @@ p.disclaimer {
   text-decoration: none;
   color: #fff;
 }
+
+.og_price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+#root > div > main > div > div > div:nth-child(1) > img {
+  width: 100%;
+  max-height: 400px;
+}
+
+.brand {
+  border: red 1px solid;
+  padding: 5px 12px;
+  background-color: red;;
+  color:white;
+  border-radius: 4px;
+}
