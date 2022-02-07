@@ -52,6 +52,31 @@ function Cart() {
         updateCartQuantity(cart_id, 'inc');
     }
 
+    // Delete Cart item
+    const deleteCartItem = (e, cart_id) => {
+        e.preventDefault();
+        
+        const thisClicked = e.currentTarget;
+        thisClicked.innerText = "Removing";
+
+        axios.delete(`/api/delete-cart-item/${cart_id}`).then(res => {
+            if (res.data.status === 200) {
+                swal({
+                    title: 'Success',
+                    text: res.data.message,
+                    icon: 'success',
+                });
+                thisClicked.closest('tr').remove();
+            } else if (res.data.status === 404) {
+                swal({
+                    title: 'Oops! 404',
+                    text: res.data.message,
+                    icon: 'error',
+                });
+            }
+        });
+    }
+
     var viewCart_HTMLTABLE = "";
     viewCart_HTMLTABLE = cart.map((item) => {
         return (
@@ -72,7 +97,7 @@ function Cart() {
                     ${item.product.selling_price * item.product_qty}
                 </td>
                 <td>
-                    <button className="btn btn-danger">Remove</button>
+                    <button onClick={(e) => deleteCartItem(e, item.id)} className="btn btn-danger">Remove</button>
                 </td>
             </tr>
         );

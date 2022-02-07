@@ -87,12 +87,17 @@ class CartController extends Controller
         }
     }
 
+    /**
+     * Update quantity
+     * Updates the product quantity in cart
+     */
     public function updateQuantity($cart_id, $scope)
     {
         if (auth('sanctum')->check())
         {
             $user_id = auth('sanctum')->user()->id;
             $cartItem = Cart::where('id', $cart_id)->where('user_id', $user_id)->first();
+
             if ($scope == 'inc') 
             {
                 $cartItem->product_qty += 1;
@@ -108,6 +113,43 @@ class CartController extends Controller
                 'status' => 200,
                 'message' => 'Quantity updated'
             ]);
+        }
+        else 
+        {
+            return response()->json([
+                'status' => 401,
+                'message' => 'You need to login first.'
+            ]);
+        }
+    }
+
+    /**
+     * Delete Cart Item
+     * Removes a product from cart by product id
+     */
+    public function deleteCartItem($cart_id) 
+    {
+        
+        if (auth('sanctum')->check())
+        {
+            $user_id = auth('sanctum')->user()->id;
+            $cartItem = Cart::where('id', $cart_id)->where('user_id', $user_id)->first();
+            
+            if ($cartItem) 
+            {
+                $cartItem->delete();
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Product removed successfully.'
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Product not found.'
+                ]);
+            }
         }
         else 
         {

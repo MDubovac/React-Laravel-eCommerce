@@ -29,6 +29,7 @@ Route::get('/view-product/{category_slug}/{product_slug}', [FrontendController::
 Route::post('/add-to-cart', [CartController::class, 'addToCart']);
 Route::get('/view-cart', [CartController::class, 'viewCart']);
 Route::put('/cart-update-quantity/{cart_id}/{scope}', [CartController::class, 'updateQuantity']);
+Route::delete('/delete-cart-item/{cart_id}', [CartController::class, 'deleteCartItem']);
 
 // Regiser & Login
 Route::post('/register', [AuthController::class, 'register']);
