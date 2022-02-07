@@ -46,6 +46,11 @@ function Header() {
                             {
                                 localStorage.getItem('auth_token') ?
                                 <>
+                                    <Link to="/cart">
+                                        <i className="fas fa-shopping-cart"></i>
+                                        <span> </span>
+                                        Cart
+                                    </Link>
                                     <Button onClick={logoutSubmit} className="btn btn-outline-warning">Logout</Button>
                                 </>
                                 :

@@ -15,6 +15,7 @@ import About from './components/frontend/About';
 import Contact from './components/frontend/Contact';
 import ProductList from './components/frontend/ProductList';
 import ViewProduct from './components/frontend/ViewProduct';
+import Cart from './components/frontend/Cart';
 
 // Admin components
 import AdminLayout from './layouts/admin/AdminLayout';
@@ -55,7 +56,8 @@ function App() {
           <Route path='/contact' element={ <MainPage Cmp={ Contact } /> } />
           <Route path='/collections/:slug' element={ <MainPage Cmp={ ProductList } /> } />
           <Route path='/:category_slug/:product_slug' element={ <MainPage Cmp={ ViewProduct } /> } />
-   
+          <Route path='/cart' element={ <MainPage Cmp={ Cart } /> } />
+
           <Route path='/login' element={ <MainPage Cmp={ Login } /> } />
           <Route path='/register' element={ <MainPage Cmp={ Register } /> } />
 

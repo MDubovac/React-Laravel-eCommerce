@@ -43,7 +43,6 @@ class CartController extends Controller
                         'message' => 'Product added successfully.'
                     ]);
                 }
-    
             }
             else 
             {
@@ -53,8 +52,62 @@ class CartController extends Controller
                 ]);
     
             }
+        }
+        else 
+        {
+            return response()->json([
+                'status' => 401,
+                'message' => 'You need to login first.'
+            ]);
+        }
+    }
 
-           
+    /**
+     * View Cart
+     * Returns all products by user and cart id
+     */
+    public function viewCart()
+    {
+        if (auth('sanctum')->check())
+        {
+            $user_id = auth('sanctum')->user()->id;
+            $cartItems = Cart::where('user_id', $user_id)->get();
+
+            return response()->json([
+                'status' => 200,
+                'cart' => $cartItems
+            ]);
+        }
+        else 
+        {
+            return response()->json([
+                'status' => 401,
+                'message' => 'You need to login first.'
+            ]);
+        }
+    }
+
+    public function updateQuantity($cart_id, $scope)
+    {
+        if (auth('sanctum')->check())
+        {
+            $user_id = auth('sanctum')->user()->id;
+            $cartItem = Cart::where('id', $cart_id)->where('user_id', $user_id)->first();
+            if ($scope == 'inc') 
+            {
+                $cartItem->product_qty += 1;
+            }
+            else if ($scope == "dec")
+            {
+                $cartItem->product_qty -= 1;
+            }
+
+            $cartItem->update();
+            
+            return response()->json([
+                'status' => 200,
+                'message' => 'Quantity updated'
+            ]);
         }
         else 
         {

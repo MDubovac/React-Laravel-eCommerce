@@ -19,13 +19,18 @@ use App\Http\Controllers\CartController;
 |
 */
 
-// Public routes
+/* Public routes */
+// Categories
 Route::get('/all_categories', [FrontendController::class, 'getAllCategories']);
 Route::get('/all_products/{slug}', [FrontendController::class, 'getProductsByCategorySlug']);
 Route::get('/view-product/{category_slug}/{product_slug}', [FrontendController::class, 'getProductBySlug']);
 
+// Cart
 Route::post('/add-to-cart', [CartController::class, 'addToCart']);
+Route::get('/view-cart', [CartController::class, 'viewCart']);
+Route::put('/cart-update-quantity/{cart_id}/{scope}', [CartController::class, 'updateQuantity']);
 
+// Regiser & Login
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 

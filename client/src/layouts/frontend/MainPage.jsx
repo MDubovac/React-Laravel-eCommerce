@@ -11,7 +11,7 @@ function MainPage(props) {
             <Header />
             <main>
                 <Cmp />
-            </main>
+            </main>          
         </>
     );
 }
