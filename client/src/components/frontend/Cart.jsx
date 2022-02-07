@@ -9,6 +9,9 @@ function Cart() {
 
     const [cart, setCart] = useState([]);
 
+    // Use this var to get value of subtotal && grandtotal
+    var totalCartPrice = 0;
+
     useEffect(() => {
         if (!localStorage.getItem('auth_token')) {
             navigate('/login');
@@ -79,6 +82,9 @@ function Cart() {
 
     var viewCart_HTMLTABLE = "";
     viewCart_HTMLTABLE = cart.map((item) => {
+
+        totalCartPrice += item.product.selling_price * item.product_qty;
+
         return (
             <tr key={item.id}>
                 <td>
@@ -140,6 +146,20 @@ function Cart() {
                             </h3>
                         </>
                 }
+                <div className="row my-3">
+                    <div className="col-md-6">
+                        <div className="card py-3 px-2">
+                            <h3>
+                                <b>Sub Total:</b> <span className="float-end">${totalCartPrice}</span>
+                            </h3>
+                            <h3>
+                                <b>Grand Total:</b> <span className="float-end">${totalCartPrice}</span>
+                            </h3>
+                            <hr />
+                            <Link to="/checkout" className="btn btn-primary">Checkout</Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );
