@@ -30,7 +30,7 @@ function Cart() {
             }
         });
     }, []);
-    
+
     // Send put request to server (update the quantity)
     const updateCartQuantity = (cart_id, scope) => {
         axios.put(`/api/cart-update-quantity/${cart_id}/${scope}`);
@@ -58,7 +58,7 @@ function Cart() {
     // Delete Cart item
     const deleteCartItem = (e, cart_id) => {
         e.preventDefault();
-        
+
         const thisClicked = e.currentTarget;
         thisClicked.innerText = "Removing";
 
@@ -137,6 +137,20 @@ function Cart() {
                                     </tbody>
                                 </table>
                             </div>
+                            <div className="row my-3">
+                                <div className="col-md-6">
+                                    <div className="card py-3 px-2">
+                                        <h3>
+                                            <b>Sub Total:</b> <span className="float-end">${totalCartPrice}</span>
+                                        </h3>
+                                        <h3>
+                                            <b>Grand Total:</b> <span className="float-end">${totalCartPrice}</span>
+                                        </h3>
+                                        <hr />
+                                        <Link to="/checkout" className="btn btn-primary">Checkout</Link>
+                                    </div>
+                                </div>
+                            </div>
                         </>
                         :
                         <>
@@ -146,20 +160,6 @@ function Cart() {
                             </h3>
                         </>
                 }
-                <div className="row my-3">
-                    <div className="col-md-6">
-                        <div className="card py-3 px-2">
-                            <h3>
-                                <b>Sub Total:</b> <span className="float-end">${totalCartPrice}</span>
-                            </h3>
-                            <h3>
-                                <b>Grand Total:</b> <span className="float-end">${totalCartPrice}</span>
-                            </h3>
-                            <hr />
-                            <Link to="/checkout" className="btn btn-primary">Checkout</Link>
-                        </div>
-                    </div>
-                </div>
             </div>
         </>
     );

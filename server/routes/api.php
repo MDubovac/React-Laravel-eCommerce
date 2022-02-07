@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,9 @@ Route::post('/add-to-cart', [CartController::class, 'addToCart']);
 Route::get('/view-cart', [CartController::class, 'viewCart']);
 Route::put('/cart-update-quantity/{cart_id}/{scope}', [CartController::class, 'updateQuantity']);
 Route::delete('/delete-cart-item/{cart_id}', [CartController::class, 'deleteCartItem']);
+
+// Orders
+Route::post('/place-order', [CheckoutController::class, 'placeOrder']);
 
 // Regiser & Login
 Route::post('/register', [AuthController::class, 'register']);
